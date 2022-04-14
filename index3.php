@@ -71,7 +71,7 @@ try {
         $_POST['gender'],
         $_POST['number_of_limbs'],
         $_POST['biography'],
-        $_POST[true],
+        $_POST['policy'],
     ));
    
     $stmt = $db->prepare("INSERT INTO superpowers SET name = ?");
