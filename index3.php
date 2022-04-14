@@ -76,8 +76,7 @@ $db = new PDO('mysql:host=localhost;dbname=u47560', $user, $pass, array(PDO::ATT
 try {
     $stmt = $db->prepare("INSERT INTO my_table SET name = ?, email = ?, year_of_birth = ?, gender = ?, number_of_limbs = ?, biography = ?, policy = ?");
     $stmt->execute(array($name, $email, $year_of_birth, $gender, $number_of_limbs, $biography, $policy));
-    $user_id = $db->lastInsertId();
-
+   
     $superpowers = $db->prepare("INSERT INTO superpowers SET powers = ?, userID = ? ");
     $superpowers->execute(array($powers, $users_id));
 } catch (PDOException $e) {
