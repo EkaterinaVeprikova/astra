@@ -77,9 +77,10 @@ try {
     $stmt = $db->prepare("INSERT INTO my_table SET name = ?, email = ?, year_of_birth = ?, gender = ?, number_of_limbs = ?, biography = ?, policy = ?");
     $stmt->execute(array($name, $email, $year_of_birth, $gender, $number_of_limbs, $biography, $policy));
    
-    $superpowers = $db->prepare("INSERT INTO superpowers SET powers = ?, userID = ? ");
-    $superpowers->execute(array($powers, $users_id));
-} catch (PDOException $e) {
+    $stmt = $db->prepare("INSERT INTO superpowers SET name = ? ");
+    $stmt->execute(array($powers));
+} 
+catch (PDOException $e) {
     print('Error : ' . $e->getMessage());
     exit();
 }
