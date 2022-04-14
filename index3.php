@@ -57,17 +57,6 @@ if ($errors) {
     exit();
 }
 
-// Сохранение в базу данных.
-$name = $_POST['name'];
-$email = $_POST['email'];
-$year_of_birth = (int)$_POST['year_of_birth'];
-$gender = $_POST['gender'];
-$number_of_limbs = (int)$_POST['number_of_limbs'];
-$powers = implode(',', $_POST['superpowers-3']);
-$biography = $_POST['biography'];
-$policy = $_POST['policy'];
-
-
 $user = 'u47560';
 $pass = '7678381';
 $db = new PDO('mysql:host=localhost;dbname=u47560', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
@@ -75,10 +64,20 @@ $db = new PDO('mysql:host=localhost;dbname=u47560', $user, $pass, array(PDO::ATT
 // Подготовленный запрос. Не именованные метки.
 try {
     $stmt = $db->prepare("INSERT INTO my_table SET name = ?, email = ?, year_of_birth = ?, gender = ?, number_of_limbs = ?, biography = ?, policy = ?");
-    $stmt->execute(array($name, $email, $year_of_birth, $gender, $number_of_limbs, $biography, $policy));
+    $stmt->execute(array(
+        $_POST['name'],
+        $_POST['email'],
+        $_POST['year_of_birth'],
+        $_POST['gender'],
+        $_POST['number_of_limbs'],
+        $_POST['biography'],
+        $_POST['policy'],
+    ));
    
-    $stmt = $db->prepare("INSERT INTO superpowers SET name = ? ");
-    $stmt->execute(array($powers));
+    $stmt = $db->prepare("INSERT INTO superpowers SET name = ?");
+    $stmt->execute(array(
+        $_POST['superpowers-3'] = implode(', ', $_POST['superpowers-3']),
+    ));
 } 
 catch (PDOException $e) {
     print('Error : ' . $e->getMessage());
