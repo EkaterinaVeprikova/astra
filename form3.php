@@ -97,7 +97,7 @@
                 да
             </label><br />
 
-            <input type="submit" value="Отправить" />
+            <p><button type="submit" value="send">отправить</p>
         </form>
     </div>
 
