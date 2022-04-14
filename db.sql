@@ -12,7 +12,6 @@ CREATE TABLE my_table (
 
 CREATE TABLE superpowers (
   id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  powers varchar(128) NOT NULL DEFAULT '',
-  userID int(10) NOT NULL DEFAULT 0,
+  name varchar(128) NOT NULL DEFAULT '',
   PRIMARY KEY (id)
 );
