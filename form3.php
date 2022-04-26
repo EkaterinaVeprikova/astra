@@ -34,7 +34,7 @@
 
             <label>
                 Дата рождения:<br />
-                <input type="date" name="date"
+                <input type="date" name="year_of_birth"
                        value="0000-00-00"
                        type="date" />
             </label><br />
