@@ -34,7 +34,7 @@
 
             <label>
                 Год рождения:<br />
-                <select name="year_of_birth[]">
+                <select name="year_of_birth">
                     <option value="default" hidden>выберите из списка</option>
                     <option>1998</option>
                     <option>1999</option>
