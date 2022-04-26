@@ -27,9 +27,9 @@ if (!preg_match("/@/",$_POST['email'])) {
     print('заполни email.<br/>');
     $errors = TRUE;
 }
-if (empty($_POST['year_of_birth'])) {
-  print('выбери год рождения.<br/>');
-  $errors = TRUE;
+if ($_POST['year_of_birth'] == "default") {
+    print('выбери год рождения.<br/>');
+    $errors = TRUE;
 }
 if (empty($_POST['gender'])) {
     print('выбери пол.<br/>');
@@ -65,15 +65,12 @@ $db = new PDO('mysql:host=localhost;dbname=u47560', $user, $pass, array(PDO::ATT
 try {
     $stmt = $db->prepare("INSERT INTO my_table SET name = ?, email = ?, year_of_birth = ?, gender = ?, number_of_limbs = ?");
     $stmt->execute(array(
-        $_POST['name'],
+         $_POST['name'],
          $_POST['email'],
          $_POST['year_of_birth'],
          $_POST['gender'],
          $_POST['number_of_limbs'],
-        
-   
-    ));
-    
+    ));  
    
     $stmt = $db->prepare("INSERT INTO superpowers SET name = ?");
     $stmt->execute(array(
