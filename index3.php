@@ -63,10 +63,8 @@ $db = new PDO('mysql:host=localhost;dbname=u47560', $user, $pass, array(PDO::ATT
 
 // Подготовленный запрос. Не именованные метки.
 try {
-    print_r( $_POST);
     $stmt = $db->prepare("INSERT INTO my_table SET name = ?, email = ?, year_of_birth = ?, gender = ?, number_of_limbs = ?");
-    if (!$stmt) print_r($db->errorInfo());
-    $result = $stmt->execute(array(
+    $stmt->execute(array(
         $_POST['name'],
          $_POST['email'],
          $_POST['year_of_birth'],
@@ -92,5 +90,5 @@ catch (PDOException $e) {
 // Делаем перенаправление.
 // Если запись не сохраняется, но ошибок не видно, то можно закомментировать эту строку чтобы увидеть ошибку.
 // Если ошибок при этом не видно, то необходимо настроить параметр display_errors для PHP.
-//header('Location: ?save=1');
+header('Location: ?save=1');
 ?>
