@@ -33,15 +33,10 @@
             </label><br />
 
             <label>
-                Год рождения:<br />
-                <select name="year_of_birth[]">
-                    <option value="default" hidden>выберите из списка</option>
-                    <option>1998</option>
-                    <option>1999</option>
-                    <option>2000</option>
-                    <option>2001</option>
-                    <option>2002</option>
-                </select>
+                Дата рождения:<br />
+                <input type="date" name="date"
+                       value="0000-00-00"
+                       type="date" />
             </label><br />
 
             Пол:<br />
