@@ -27,9 +27,9 @@ if (!preg_match("/@/",$_POST['email'])) {
     print('заполни email.<br/>');
     $errors = TRUE;
 }
-if ($_POST['year_of_birth'] == "default") {
-    print('выбери год рождения.<br/>');
-    $errors = TRUE;
+if (empty($_POST['year_of_birth'])) {
+  print('выбери год рождения.<br/>');
+  $errors = TRUE;
 }
 if (empty($_POST['gender'])) {
     print('выбери пол.<br/>');
